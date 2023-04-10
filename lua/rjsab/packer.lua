@@ -24,6 +24,7 @@ return require('packer').startup(function(use)
     use('savq/melange-nvim')
     use('EdenEast/nightfox.nvim')
     use('nvim-lualine/lualine.nvim')
+    use('jose-elias-alvarez/null-ls.nvim')
     use { "neoclide/coc.nvim", branch = "release" }
 
 	use {

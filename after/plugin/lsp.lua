@@ -9,6 +9,12 @@ lsp.ensure_installed({
 --  'pyright'
 })
 
+lsp.format_on_save({
+    servers = {
+        ['null-ls'] = {'python'},
+    }
+})
+
 -- Fix Undefined global 'vim'
 lsp.configure('lua-language-server', {
     settings = {
@@ -47,8 +53,25 @@ lsp.set_preferences({
     }
 })
 
+local null_ls = require('null-ls')
+local null_opts = lsp.build_options('null-ls', {})
+
+null_ls.setup({
+    on_attach = function(client, bufnr)
+        null_opts.on_attach(client, bufnr)
+        client.server_capabilities.completionProvider = false
+    end,
+    sources = {
+        null_ls.builtins.formatting.black,
+    }
+})
+
 lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
+
+  if client.name == 'null-ls' then
+      client.server_capabilities.completionProvider = false
+  end
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
   vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
