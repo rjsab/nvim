@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
     use('rebelot/kanagawa.nvim')
     use('savq/melange-nvim')
     use('EdenEast/nightfox.nvim')
+    use('nvim-lualine/lualine.nvim')
     use { "neoclide/coc.nvim", branch = "release" }
 
 	use {
