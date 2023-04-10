@@ -1,0 +1,6 @@
+--vim.cmd.colorscheme('dogrun')
+--vim.cmd.colorscheme('deep-space')
+--vim.cmd.colorscheme('falcon')
+--vim.cmd.colorscheme('catppuccin-macchiato')
+--vim.cmd.colorscheme('kanagawa-dragon')
+vim.cmd.colorscheme('melange')
