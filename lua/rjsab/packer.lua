@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
     use('nvim-lualine/lualine.nvim')
     use('jose-elias-alvarez/null-ls.nvim')
     use { "neoclide/coc.nvim", branch = "release" }
+    use('christoomey/vim-tmux-navigator')
 
 	use {
 		'VonHeikemen/lsp-zero.nvim',
